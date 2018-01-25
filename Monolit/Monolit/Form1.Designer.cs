@@ -30,10 +30,12 @@
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			this.statusBottomBar = new System.Windows.Forms.StatusStrip();
+			this.toolStripStatusLabel_OpenedFileName = new System.Windows.Forms.ToolStripStatusLabel();
 			this.menuTopBar = new System.Windows.Forms.MenuStrip();
 			this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.открытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripStatusLabel_OpenedFileName = new System.Windows.Forms.ToolStripStatusLabel();
+			this.richTextBox_Document = new System.Windows.Forms.RichTextBox();
+			this.toolStripStatusLabel_Главы = new System.Windows.Forms.ToolStripStatusLabel();
 			this.statusBottomBar.SuspendLayout();
 			this.menuTopBar.SuspendLayout();
 			this.SuspendLayout();
@@ -41,12 +43,19 @@
 			// statusBottomBar
 			// 
 			this.statusBottomBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel_OpenedFileName});
+            this.toolStripStatusLabel_OpenedFileName,
+            this.toolStripStatusLabel_Главы});
 			this.statusBottomBar.Location = new System.Drawing.Point(0, 366);
 			this.statusBottomBar.Name = "statusBottomBar";
 			this.statusBottomBar.Size = new System.Drawing.Size(535, 22);
 			this.statusBottomBar.TabIndex = 0;
 			this.statusBottomBar.Text = "statusStrip1";
+			// 
+			// toolStripStatusLabel_OpenedFileName
+			// 
+			this.toolStripStatusLabel_OpenedFileName.Name = "toolStripStatusLabel_OpenedFileName";
+			this.toolStripStatusLabel_OpenedFileName.Size = new System.Drawing.Size(52, 17);
+			this.toolStripStatusLabel_OpenedFileName.Text = "Файл: --";
 			// 
 			// menuTopBar
 			// 
@@ -74,23 +83,35 @@
 			this.открытьToolStripMenuItem.ToolTipText = "Загрузить docx файл";
 			this.открытьToolStripMenuItem.Click += new System.EventHandler(this.открытьToolStripMenuItem_Click);
 			// 
-			// toolStripStatusLabel_OpenedFileName
+			// richTextBox_Document
 			// 
-			this.toolStripStatusLabel_OpenedFileName.Name = "toolStripStatusLabel_OpenedFileName";
-			this.toolStripStatusLabel_OpenedFileName.Size = new System.Drawing.Size(52, 17);
-			this.toolStripStatusLabel_OpenedFileName.Text = "Файл: --";
+			this.richTextBox_Document.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.richTextBox_Document.Location = new System.Drawing.Point(0, 24);
+			this.richTextBox_Document.Name = "richTextBox_Document";
+			this.richTextBox_Document.Size = new System.Drawing.Size(535, 342);
+			this.richTextBox_Document.TabIndex = 2;
+			this.richTextBox_Document.Text = "";
+			// 
+			// toolStripStatusLabel_Главы
+			// 
+			this.toolStripStatusLabel_Главы.Name = "toolStripStatusLabel_Главы";
+			this.toolStripStatusLabel_Главы.Size = new System.Drawing.Size(57, 17);
+			this.toolStripStatusLabel_Главы.Text = "Главы: --";
 			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(535, 388);
+			this.Controls.Add(this.richTextBox_Document);
 			this.Controls.Add(this.statusBottomBar);
 			this.Controls.Add(this.menuTopBar);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MainMenuStrip = this.menuTopBar;
 			this.Name = "Form1";
 			this.Text = "Monolit Soft";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+			this.Load += new System.EventHandler(this.Form1_Load);
 			this.statusBottomBar.ResumeLayout(false);
 			this.statusBottomBar.PerformLayout();
 			this.menuTopBar.ResumeLayout(false);
@@ -107,6 +128,8 @@
 		private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem открытьToolStripMenuItem;
 		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_OpenedFileName;
+		private System.Windows.Forms.RichTextBox richTextBox_Document;
+		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_Главы;
 	}
 }
 
