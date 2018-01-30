@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.4
+VisualStudioVersion = 15.0.26730.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monolit", "Monolit\Monolit.csproj", "{69D55346-8D0C-4B2C-ABEA-8C567F75CAEA}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "MonolitDB", "MonolitDB\MonolitDB.sqlproj", "{431A37E9-CBDB-499E-93DC-1C3C067D7357}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +17,17 @@ Global
 		{69D55346-8D0C-4B2C-ABEA-8C567F75CAEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69D55346-8D0C-4B2C-ABEA-8C567F75CAEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69D55346-8D0C-4B2C-ABEA-8C567F75CAEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{431A37E9-CBDB-499E-93DC-1C3C067D7357}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{431A37E9-CBDB-499E-93DC-1C3C067D7357}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{431A37E9-CBDB-499E-93DC-1C3C067D7357}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{431A37E9-CBDB-499E-93DC-1C3C067D7357}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{431A37E9-CBDB-499E-93DC-1C3C067D7357}.Release|Any CPU.Build.0 = Release|Any CPU
+		{431A37E9-CBDB-499E-93DC-1C3C067D7357}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {11BD2682-0BB0-4300-AC00-5389B12F55F7}
 	EndGlobalSection
 EndGlobal
