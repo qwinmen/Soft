@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using word = Microsoft.Office.Interop.Word;
 
 namespace Monolit.OfficeWord
@@ -55,40 +56,20 @@ namespace Monolit.OfficeWord
 			return countChapters;
 		}
 
-		public static string[] SplitByChapters(word.Document document, string findText = "Глава ")
+		public static string[] SplitByChapters(string document, string findText = "Глава ")
 		{
-			var chapters = new List<string>();
 			Dictionary<string, string> dictionaryChapters = new Dictionary<string, string>();
 			{
-				var allBookText = document.Content.Text;
-				var predlojenie = document.Sentences[10];   //массив предложений
-				bool findFlag = false;
-				int chapterKey = 0;
-
-				for (var i = 1; i < document.Sentences.Count; i++)
+				//глава третья исходный свет в тонелях материка глава четвертая корпорация наносит визит
+				string[] splitterArray = document.Split(new[] { findText }, StringSplitOptions.RemoveEmptyEntries);
+				for (var i = 0; i < splitterArray.Length; i++)
 				{
-					var abzac = document.Sentences[i];
-					var rng = abzac;
-					rng.Find.Text = findText;
-					rng.Find.Forward = true;
-					if (rng.Find.Execute(MatchCase: false))
-					{
-						findFlag = true;
-						chapterKey++;
-						dictionaryChapters.Add($"Глава {chapterKey}", rng.Text);
-						if (chapters.Count != 0)
-							chapters.Clear();
-					}
-
-					if(findFlag)
-						chapters.Add(rng.Text);
+					dictionaryChapters.Add($"Глава {i}", splitterArray[i]);
 				}
 
-				
-				
 			}
 
-			return chapters.ToArray();
+			return dictionaryChapters.Keys.ToArray();
 		}
 	}
 }

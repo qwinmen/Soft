@@ -70,7 +70,7 @@ namespace Monolit
 						richTextBox_Document.Text = range.Text;
 					TextParseManager.FullWordText = range.Text;
 					toolStripStatusLabel_Главы.Text = @"Главы: " + WordHelpers.FindChapters(_document);
-					var array = WordHelpers.SplitByChapters(_document);
+					var array = WordHelpers.SplitByChapters(TextParseManager.FullWordText);
 						break;
 				}
 				
@@ -102,7 +102,6 @@ namespace Monolit
 		private void Form1_Load(object sender, EventArgs e)
 		{
 			Form1_FormClosing(sender, null);
-			//_application = new word.Application();
 		}
 	}
 }

@@ -86,5 +86,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MonolitDB\MonolitDB.sqlproj">
+      <Project>{431a37e9-cbdb-499e-93dc-1c3c067d7357}</Project>
+      <Name>MonolitDB</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
