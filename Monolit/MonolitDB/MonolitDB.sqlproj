@@ -61,6 +61,11 @@
     <Folder Include="Properties" />
     <Folder Include="dbo" />
     <Folder Include="dbo\Tables" />
+    <Folder Include="dbo\Functions" />
+    <Folder Include="Scripts" />
+    <Folder Include="Scripts\AllData" />
+    <Folder Include="Scripts\AllData\dbo" />
+    <Folder Include="dbo\Stored Procedures" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -70,9 +75,18 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Objects.sql" />
+    <Build Include="dbo\Functions\_Sys_GetSequenceNextValue.sql" />
+    <Build Include="dbo\Tables\_Sys_Sequences.sql" />
+    <Build Include="dbo\Stored Procedures\_Sys_EnsureSequence.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="MonolitDB.publish.xml" />
     <None Include="_profile_MonolitDB.publish.xml" />
+    <None Include="Documents.txt" />
+    <None Include="Scripts\FixSequences.sql" />
+    <None Include="Scripts\AllData\dbo\Sys_Sequences.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Scripts\PostDeployment.sql" />
   </ItemGroup>
 </Project>

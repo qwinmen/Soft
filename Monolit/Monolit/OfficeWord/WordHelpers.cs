@@ -28,7 +28,7 @@ namespace Monolit.OfficeWord
 				document.Close(null, null, null);
 				application.Quit();
 			}
-			catch (Exception e)
+			catch (Exception)
 			{
 			}
 			System.Runtime.InteropServices.Marshal.ReleaseComObject(document);

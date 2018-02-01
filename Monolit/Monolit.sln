@@ -7,6 +7,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monolit", "Monolit\Monolit.
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "MonolitDB", "MonolitDB\MonolitDB.sqlproj", "{431A37E9-CBDB-499E-93DC-1C3C067D7357}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interfaces", "Interfaces", "{90C9E2F5-EDC7-427A-A411-68974506A485}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monolit.Interfaces", "Monolit.Interfaces\Monolit.Interfaces.csproj", "{EE28960A-5CE2-4EE5-8811-53172C8EF680}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AppServer", "AppServer", "{5800B690-E631-4435-BA32-D5E25908E6A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monolit.DataLayer", "Monolit.DataLayer\Monolit.DataLayer.csproj", "{D41DA8A9-AD74-45D6-B2A9-D65A02F289F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monolit.BusinessLayer", "Monolit.BusinessLayer\Monolit.BusinessLayer.csproj", "{BE6ED976-5357-4C17-946F-B490BB5A14E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monolit.Facade", "Monolit.Facade\Monolit.Facade.csproj", "{907490F5-F337-4B0A-AA8B-1D2D55316F71}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,9 +35,31 @@ Global
 		{431A37E9-CBDB-499E-93DC-1C3C067D7357}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{431A37E9-CBDB-499E-93DC-1C3C067D7357}.Release|Any CPU.Build.0 = Release|Any CPU
 		{431A37E9-CBDB-499E-93DC-1C3C067D7357}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{EE28960A-5CE2-4EE5-8811-53172C8EF680}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE28960A-5CE2-4EE5-8811-53172C8EF680}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE28960A-5CE2-4EE5-8811-53172C8EF680}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE28960A-5CE2-4EE5-8811-53172C8EF680}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D41DA8A9-AD74-45D6-B2A9-D65A02F289F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D41DA8A9-AD74-45D6-B2A9-D65A02F289F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D41DA8A9-AD74-45D6-B2A9-D65A02F289F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D41DA8A9-AD74-45D6-B2A9-D65A02F289F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE6ED976-5357-4C17-946F-B490BB5A14E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE6ED976-5357-4C17-946F-B490BB5A14E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE6ED976-5357-4C17-946F-B490BB5A14E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE6ED976-5357-4C17-946F-B490BB5A14E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{907490F5-F337-4B0A-AA8B-1D2D55316F71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{907490F5-F337-4B0A-AA8B-1D2D55316F71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{907490F5-F337-4B0A-AA8B-1D2D55316F71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{907490F5-F337-4B0A-AA8B-1D2D55316F71}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EE28960A-5CE2-4EE5-8811-53172C8EF680} = {90C9E2F5-EDC7-427A-A411-68974506A485}
+		{D41DA8A9-AD74-45D6-B2A9-D65A02F289F4} = {5800B690-E631-4435-BA32-D5E25908E6A1}
+		{BE6ED976-5357-4C17-946F-B490BB5A14E5} = {5800B690-E631-4435-BA32-D5E25908E6A1}
+		{907490F5-F337-4B0A-AA8B-1D2D55316F71} = {5800B690-E631-4435-BA32-D5E25908E6A1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {11BD2682-0BB0-4300-AC00-5389B12F55F7}

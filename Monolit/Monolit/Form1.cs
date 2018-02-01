@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Monolit.OfficeWord;
 using Monolit.Text;
@@ -23,7 +16,7 @@ namespace Monolit
 		private word.Document _document;
 		private word.Application _application;
 
-		private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
+		private void ОткрытьToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			Form1_FormClosing(sender, null);
 			_application = new word.Application();
@@ -94,7 +87,7 @@ namespace Monolit
 				_document.Close(SaveChanges: false, OriginalFormat: false, RouteDocument: false);
 				_application.Quit(SaveChanges: false, OriginalFormat: false, RouteDocument: false);
 			}
-			catch (Exception exception)
+			catch (Exception)
 			{}
 			System.Runtime.InteropServices.Marshal.ReleaseComObject(_application);
 		}
