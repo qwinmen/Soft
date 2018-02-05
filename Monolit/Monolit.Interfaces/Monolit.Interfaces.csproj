@@ -43,10 +43,6 @@
       <Project>{431a37e9-cbdb-499e-93dc-1c3c067d7357}</Project>
       <Name>MonolitDB</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Monolit\Monolit.csproj">
-      <Project>{69d55346-8d0c-4b2c-abea-8c567f75caea}</Project>
-      <Name>Monolit</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Common.Logging, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">

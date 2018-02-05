@@ -80,8 +80,12 @@
     <Build Include="dbo\Stored Procedures\_Sys_EnsureSequence.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="MonolitDB.publish.xml" />
-    <None Include="_profile_MonolitDB.publish.xml" />
+    <None Include="MonolitDB.publish.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="_profile_MonolitDB.publish.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Documents.txt" />
     <None Include="Scripts\FixSequences.sql" />
     <None Include="Scripts\AllData\dbo\Sys_Sequences.sql" />

@@ -88,5 +88,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Monolit.Interfaces\Monolit.Interfaces.csproj">
+      <Project>{ee28960a-5ce2-4ee5-8811-53172c8ef680}</Project>
+      <Name>Monolit.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
