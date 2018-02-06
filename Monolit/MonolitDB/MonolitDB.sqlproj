@@ -93,4 +93,10 @@
   <ItemGroup>
     <PostDeploy Include="Scripts\PostDeployment.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <SqlCmdVariable Include="DemSystemDB">
+      <DefaultValue>DEM-SYS-DB</DefaultValue>
+      <Value>$(SqlCmdVar__1)</Value>
+    </SqlCmdVariable>
+  </ItemGroup>
 </Project>
