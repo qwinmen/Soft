@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Monolit.Interfaces.Contracts;
 using Monolit.OfficeWord;
 using Monolit.Text;
 using word = Microsoft.Office.Interop.Word;
@@ -11,6 +12,7 @@ namespace Monolit
 		public Form1()
 		{
 			InitializeComponent();
+			
 		}
 
 		private word.Document _document;
