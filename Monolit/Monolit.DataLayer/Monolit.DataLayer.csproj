@@ -90,6 +90,14 @@
     <Compile Include="Model\VersionedEntryDao.cs" />
     <Compile Include="Model\MonolitDataContext.cs" />
     <Compile Include="ORM\Repositories\IDataRepository.cs" />
+    <Compile Include="SqlServerTypes\Utilities.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="SqlServerTypes\x64\msvcr120.dll" />
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll" />
+    <Content Include="SqlServerTypes\x86\msvcr120.dll" />
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

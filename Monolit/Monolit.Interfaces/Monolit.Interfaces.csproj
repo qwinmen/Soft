@@ -73,11 +73,27 @@
   <ItemGroup>
     <Compile Include="Common\CommonOperationResultSet.cs" />
     <Compile Include="Common\CommonOperationStatus.cs" />
+    <Compile Include="Common\IWcfKnownTypeRepository.cs" />
+    <Compile Include="Common\IWcfMessageEncodingController.cs" />
+    <Compile Include="Common\IWcfServiceInfoFactory.cs" />
+    <Compile Include="Common\MaintenanceException.cs" />
     <Compile Include="Common\OperationResult.cs" />
     <Compile Include="Common\OperationResultSet.cs" />
+    <Compile Include="Common\WcfClientMessageFormatter.cs" />
+    <Compile Include="Common\WcfContextFormatterBehavior.cs" />
+    <Compile Include="Common\WcfDataContractSerializerOperationBehavior.cs" />
+    <Compile Include="Common\WcfDispatchMessageFormatter.cs" />
+    <Compile Include="Common\WcfKnownTypeAttribute.cs" />
+    <Compile Include="Common\WcfKnownTypeRepository.cs" />
+    <Compile Include="Common\WcfMessageEncodingContext.cs" />
+    <Compile Include="Common\WcfServiceInfoBase.cs" />
+    <Compile Include="Common\WcfServiceInfoFactory.cs" />
+    <Compile Include="Configuration\ClusterNodeElement.cs" />
+    <Compile Include="Configuration\ClusterSection.cs" />
     <Compile Include="Contracts\CommentOperationResult.cs" />
     <Compile Include="Contracts\IObjectService.cs" />
     <Compile Include="IDataEntry.cs" />
+    <Compile Include="InterfacesLibrary.cs" />
     <Compile Include="IVersionedEntry.cs" />
     <Compile Include="Models\Objects\Object.cs" />
     <Compile Include="Services\ICommonService.cs" />

@@ -12,7 +12,6 @@ namespace Monolit
 		public Form1()
 		{
 			InitializeComponent();
-			
 		}
 
 		private word.Document _document;
@@ -20,9 +19,6 @@ namespace Monolit
 
 		private void ОткрытьToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Form1_FormClosing(sender, null);
-			_application = new word.Application();
-
 			var openFileDialog = new OpenFileDialog
 			{
 				Filter = @"Файлы word|*.docx;*.doc"
@@ -30,7 +26,9 @@ namespace Monolit
 
 			if (openFileDialog.ShowDialog() != DialogResult.OK)
 				return;
-			
+
+			Form1_FormClosing(sender, null);
+			_application = new word.Application();
 			try
 			{
 				_document = WordHelpers.IsWordFileOpened() 

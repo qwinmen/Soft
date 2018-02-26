@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Objects\ObjectHelpers.cs" />
     <Compile Include="Objects\ObjectManager.cs" />
+    <Compile Include="SessionContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Common.Logging, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
