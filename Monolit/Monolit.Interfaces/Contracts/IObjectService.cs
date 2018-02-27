@@ -7,15 +7,15 @@ using Object = Monolit.Interfaces.Models.Objects.Object;
 namespace Monolit.Interfaces.Contracts
 {
 	[ServiceContract]
-	public interface IObjectService : ICommonService
+	public interface IObjectServices : ICommonService
 	{
-		[OperationContract]
-		CommonOperationResultSet<Object> GetObjects(long revision);
+		[OperationContract(Name="GetByRevision")]
+		CommonOperationResultSet<Object> GetNameObjects(long revision);
 
-		[OperationContract]
-		Object GetObjects(Guid uid);
+		[OperationContract(Name = "GetByUID")]
+		Object GetNameObjects(Guid uid);
 
-		[OperationContract]
-		CommentOperationResult GetObjects(Object objData);
+		[OperationContract(Name="GetByData")]
+		CommentOperationResult GetNameObjects(Object objData);
 	}
 }

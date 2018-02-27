@@ -44,7 +44,7 @@ namespace Monolit.Infrastructure
 
 			//IService To Service
 			//Привязка к БД и Entity Framework
-			kernel.Bind<IObjectService>().To<ObjectService>();
+			kernel.Bind<IObjectServices>().To<ObjectService>();
 		}
 
 	}

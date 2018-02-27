@@ -9,7 +9,11 @@ namespace Monolit.Interfaces.Configuration
 
 		public static ClusterSection GetConfigSection()
 		{
-			return (ClusterSection)ConfigurationManager.GetSection("cluster");
+			var result = (ClusterSection) ConfigurationManager.GetSection("cluster");
+			if (result == null)
+				return new ClusterSection();
+
+			return result;
 		}
 	}
 

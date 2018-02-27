@@ -1,11 +1,14 @@
-﻿using EntityFramework.DynamicFilters;
+﻿using System;
 using System.Data.Entity;
+using System.Linq;
+using EntityFramework.DynamicFilters;
 using Monolit.DataLayer.Model.dbo.Objects;
 using Monolit.Interfaces;
+using ViageSoft.SystemServices.Contextual;
 
 namespace Monolit.DataLayer.Model
 {
-	public class MonolitDataContext : DbContext
+	public class MonolitDataContext: DbContext
 	{
 		static MonolitDataContext()
 		{
@@ -13,10 +16,10 @@ namespace Monolit.DataLayer.Model
 		}
 
 		public MonolitDataContext()
-			: base("Name=MonolitDataContext")
+			: base("Name=MonolitDataContext") //.config file
 		{
 		}
-		
+
 		public DbSet<ObjectDao> Objects { get; set; }
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -26,8 +29,6 @@ namespace Monolit.DataLayer.Model
 			modelBuilder.Filter(DataFilters.SoftDelete, (IVersionedEntry entry) => !entry.IsDeleted);
 
 			modelBuilder.Configurations.Add(new ObjectDao.Map());
-			
 		}
 	}
-
 }

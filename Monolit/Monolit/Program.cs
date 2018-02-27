@@ -1,8 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using System.Web.Mvc;
 using System.Windows.Forms;
+using Microsoft.Web.Infrastructure.DynamicModuleHelper;
+using Monolit.Infrastructure;
 using Ninject;
 
 namespace Monolit
@@ -10,15 +11,35 @@ namespace Monolit
 	static class Program
 	{
 		/// <summary>
-		/// The main entry point for the application.
+		///     The main entry point for the application.
 		/// </summary>
 		[STAThread]
-		static void Main()
+		public static void Main()
 		{
-			var kernel = StandardKernelConfiguration();
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new Form1());
+			Application.Run(CreateKernel().Get<Form1>());
+		}
+
+		/// <summary>
+		///     Creates the kernel that will manage your application.
+		/// </summary>
+		/// <returns>The created kernel.</returns>
+		private static IKernel CreateKernel()
+		{
+			var kernel = new StandardKernel();
+			//kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
+			RegisterServices(kernel);
+			return kernel;
+		}
+
+		/// <summary>
+		///     Шлюз из зависимостей Ninject
+		/// </summary>
+		/// <param name="kernel">The kernel.</param>
+		private static void RegisterServices(IKernel kernel)
+		{
+			DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
 		}
 	}
 }

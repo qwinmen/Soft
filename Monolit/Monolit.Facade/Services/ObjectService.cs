@@ -10,21 +10,21 @@ namespace Monolit.Facade.Services
 {
 	[ErrorHandlerBehavior]
 	[ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Single, InstanceContextMode = InstanceContextMode.PerSession)]
-	public class ObjectService : IObjectService
+	public class ObjectService : IObjectServices
 	{
-		public CommonOperationResultSet<Object> GetObjects(long revision)
+		public CommonOperationResultSet<Object> GetNameObjects(long revision)
 		{
-			return ObjectManager.GetObjects(revision);
+			return ObjectManager.GetNameObjects(revision);
 		}
 
-		public Object GetObjects(Guid uid)
+		public Object GetNameObjects(Guid uid)
 		{
-			return ObjectManager.GetObjectByUid(uid);
+			return ObjectManager.GetNameObjectByUid(uid);
 		}
 
-		public CommentOperationResult GetObjects(Object objData)
+		public CommentOperationResult GetNameObjects(Object objData)
 		{
-			return ObjectManager.UpdateObjects(objData);
+			return ObjectManager.UpdateNameObjects(objData);
 		}
 	}
 }

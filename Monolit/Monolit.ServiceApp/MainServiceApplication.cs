@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection;
 using MassTransit;
+using MassTransit.Pipeline.Pipes;
 using MassTransit.QuartzIntegration;
 using Monolit.Facade;
 using Monolit.Facade.Common;
@@ -9,7 +10,7 @@ using Monolit.Interfaces;
 using ViageSoft.SystemServices.Applications;
 using ViageSoft.SystemServices.Contextual;
 using ViageSoft.SystemServices.Extensions;
-using MassTransit.SubscriptionConfigurators;
+using MassTransit.Saga.SubscriptionConfigurators;
 using Quartz;
 using Quartz.Impl;
 
@@ -40,7 +41,7 @@ namespace Monolit.ServiceApp
 		}
 
 		public IScheduler Scheduler { get; set; }
-		public IServiceBus BusCtrl { get; private set; }
+		public IBus BusCtrl { get; private set; }
 
 		protected override IGlobalContext CreateContext()
 		{
@@ -52,14 +53,15 @@ namespace Monolit.ServiceApp
 			base.Init(context);
 			ISchedulerFactory schedulerFactory = new StdSchedulerFactory();
 			Scheduler = schedulerFactory.GetScheduler().Result;
-
-			BusCtrl = context.Set(ConfigureBusRabbitMq(Scheduler));
-			Scheduler.JobFactory = new MassTransitJobFactory(BusCtrl);
+			//var bus = ConfigureBusRabbitMq(Scheduler);
+			//BusCtrl = context.Set(bus);
+			//Scheduler.JobFactory = new MassTransitJobFactory(BusCtrl);
 		}
 
-		private IServiceBus ConfigureBusInMemory(IScheduler scheduler)
+		private IBus ConfigureBusInMemory(IScheduler scheduler)
 		{
-			return ServiceBusFactory.New(x =>
+			throw new NotImplementedException("Bus.Factory. не сконфигурирован");
+			/*return ServiceBusFactory.New(x =>
 				{
 					x.ReceiveFrom(string.Format("loopback://localhost/{0}", RabbitMqQueueName));
 					x.UseJsonSerializer();
@@ -69,12 +71,14 @@ namespace Monolit.ServiceApp
 							RegisterConsumers(s);
 							s.Consumer(() => new ScheduleMessageConsumer(scheduler));
 						});
-				});
+				});*/
 		}
 
-		private IServiceBus ConfigureBusRabbitMq(IScheduler scheduler)
+		private IBus ConfigureBusRabbitMq(IScheduler scheduler)
 		{
-			return ServiceBusFactory.New(x =>
+			throw new NotImplementedException("rabbitmq://");
+
+			/*return MassTransit.ServiceBusFactory.New(x =>
 				{
 					x.ReceiveFrom(string.Format("rabbitmq://{0}/{1}", RabbitMqHostName, RabbitMqQueueName));
 					x.UseJsonSerializer();
@@ -85,10 +89,10 @@ namespace Monolit.ServiceApp
 							RegisterConsumers(s);
 							s.Consumer(() => new ScheduleMessageConsumer(scheduler));
 						});
-				});
+				});*/
 		}
 
-		private static void RegisterConsumers(SubscriptionBusServiceConfigurator config)
+		private static void RegisterConsumers(/*SubscriptionBusServiceConfigurator config*/)
 		{
 //			config.Consumer<ScheduledSendMessageConsumer>();
 //			config.Consumer<RemindConsumer>();
@@ -112,8 +116,8 @@ namespace Monolit.ServiceApp
 			//GlobalContextManager.CurrentContext.Get<IJobManager>().Stop();
 			if (Scheduler != null)
 				Scheduler.Standby();
-			if (BusCtrl != null)
-				BusCtrl.Dispose();
+			/*if (BusCtrl != null)
+				BusCtrl.Dispose();*/
 			if (Scheduler != null)
 				Scheduler.Shutdown();
 			base.InternalStop();

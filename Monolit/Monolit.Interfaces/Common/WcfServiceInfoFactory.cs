@@ -95,6 +95,8 @@ namespace Monolit.Interfaces.Common
 
 		public static string[] GetMap(string[] keys)
 		{
+			if (keys.Length == 0)
+				keys = new[] { "AS1" };
 			var temp = new List<Tuple<string, string>>();
 			for (int i = 0; i < keys.Length; i++)
 			for (int j = (i + 1) % keys.Length; j != i; j = (j + 1) % keys.Length)

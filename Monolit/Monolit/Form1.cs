@@ -14,6 +14,14 @@ namespace Monolit
 			InitializeComponent();
 		}
 
+		public Form1(IObjectServices objectService)
+		{
+			InitializeComponent();
+			_objectService = objectService;
+			var product = _objectService.GetNameObjects(2);
+		}
+
+		private IObjectServices _objectService;
 		private word.Document _document;
 		private word.Application _application;
 
