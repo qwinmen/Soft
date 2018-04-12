@@ -81,7 +81,7 @@
 			this.открытьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.открытьToolStripMenuItem.Text = "Открыть";
 			this.открытьToolStripMenuItem.ToolTipText = "Загрузить docx файл";
-			this.открытьToolStripMenuItem.Click += new System.EventHandler(this.открытьToolStripMenuItem_Click);
+			this.открытьToolStripMenuItem.Click += new System.EventHandler(this.ОткрытьToolStripMenuItem_Click);
 			// 
 			// richTextBox_Document
 			// 

@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Monolit.Interfaces.Contracts;
+using Monolit.Interfaces.Models.Objects;
 using Monolit.OfficeWord;
 using Monolit.Text;
 using word = Microsoft.Office.Interop.Word;
@@ -20,14 +15,25 @@ namespace Monolit
 			InitializeComponent();
 		}
 
+		public Form1(IObjectServices objectService)
+		{
+			InitializeComponent();
+			_objectService = objectService;
+			var product = _objectService.GetObjects();
+			var productByUid = _objectService.GetObjectByUID(Guid.Parse("CAF5783E-ACAE-4083-A5EF-674B5CB53391"));
+			var productid = _objectService.UpdateObject(new Interfaces.Models.Objects.Object()
+				{
+					Name = "upd_kino",
+					UID = productByUid.UID,
+				});
+		}
+
+		private IObjectServices _objectService;
 		private word.Document _document;
 		private word.Application _application;
 
-		private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
+		private void ОткрытьToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Form1_FormClosing(sender, null);
-			_application = new word.Application();
-
 			var openFileDialog = new OpenFileDialog
 			{
 				Filter = @"Файлы word|*.docx;*.doc"
@@ -35,7 +41,9 @@ namespace Monolit
 
 			if (openFileDialog.ShowDialog() != DialogResult.OK)
 				return;
-			
+
+			Form1_FormClosing(sender, null);
+			_application = new word.Application();
 			try
 			{
 				_document = WordHelpers.IsWordFileOpened() 
@@ -94,7 +102,7 @@ namespace Monolit
 				_document.Close(SaveChanges: false, OriginalFormat: false, RouteDocument: false);
 				_application.Quit(SaveChanges: false, OriginalFormat: false, RouteDocument: false);
 			}
-			catch (Exception exception)
+			catch (Exception)
 			{}
 			System.Runtime.InteropServices.Marshal.ReleaseComObject(_application);
 		}
