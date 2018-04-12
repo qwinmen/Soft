@@ -2,13 +2,12 @@
 using System.Linq;
 using System.Web.Mvc;
 using System.Windows.Forms;
-using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 using Monolit.Infrastructure;
 using Ninject;
 
 namespace Monolit
 {
-	static class Program
+	public static class Program
 	{
 		/// <summary>
 		///     The main entry point for the application.

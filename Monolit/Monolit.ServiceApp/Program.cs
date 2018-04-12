@@ -1,8 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.ServiceProcess;
+using Monolit.DataLayer.SqlServerTypes;
 using Monolit.Facade.Common;
 using ViageSoft.SystemServices.Applications;
 using ViageSoft.SystemServices.Contextual;
@@ -13,7 +13,42 @@ namespace Monolit.ServiceApp
 	{
 		const string AppTitle = "Monolit Application Service";
 
-		private class CustomStartupSettings : IStartupSettings
+		/// <summary>
+		///     The main entry point for the application.
+		/// </summary>
+		private static void Main()
+		{
+			StartupSettings.SetCurrentSettings(new CustomStartupSettings());
+
+			var service = new MainService();
+
+			Utilities.LoadNativeAssemblies(AppDomain.CurrentDomain.BaseDirectory);
+
+			if (Environment.UserInteractive)
+			{
+				Console.Title = AppTitle;
+				try
+				{
+					((IServiceApplication) service).Start();
+					var app = (ServerApplicationBase) GlobalContextManager.CurrentContext.Get<IApplication>();
+					Console.Title = string.Format(" {0} (application server node key: {1})", AppTitle, app.StartupSettings.CurrentNodeKey);
+					Console.WriteLine(@"The service is ready.");
+					Console.WriteLine(@"Press <ENTER> to terminate service.");
+
+					//Run windows app:
+					Monolit.Program.Main();
+					Console.ReadLine();
+				}
+				finally
+				{
+					((IServiceApplication) service).Stop();
+				}
+			}
+			else
+				ServiceBase.Run(service);
+		}
+
+		private class CustomStartupSettings: IStartupSettings
 		{
 			public CustomStartupSettings()
 			{
@@ -32,40 +67,6 @@ namespace Monolit.ServiceApp
 			{
 				return "AS1";
 			}
-			
-		}
-
-
-		/// <summary>
-		///     The main entry point for the application.
-		/// </summary>
-		private static void Main()
-		{
-			StartupSettings.SetCurrentSettings(new CustomStartupSettings());
-
-			var service = new MainService();
-
-			DataLayer.SqlServerTypes.Utilities.LoadNativeAssemblies(AppDomain.CurrentDomain.BaseDirectory);
-
-			if (Environment.UserInteractive)
-			{
-				Console.Title = AppTitle;
-				try
-				{
-					((IServiceApplication)service).Start();
-					var app = (ServerApplicationBase)GlobalContextManager.CurrentContext.Get<IApplication>();
-					Console.Title = string.Format(" {0} (application server node key: {1})", AppTitle, app.StartupSettings.CurrentNodeKey);
-					Console.WriteLine("The service is ready.");
-					Console.WriteLine("Press <ENTER> to terminate service.");
-					Console.ReadLine();
-				}
-				finally
-				{
-					((IServiceApplication)service).Stop();
-				}
-			}
-			else
-				ServiceBase.Run(service);
 		}
 	}
 }

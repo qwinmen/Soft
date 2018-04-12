@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Monolit.Interfaces.Contracts;
+using Monolit.Interfaces.Models.Objects;
 using Monolit.OfficeWord;
 using Monolit.Text;
 using word = Microsoft.Office.Interop.Word;
@@ -18,7 +19,13 @@ namespace Monolit
 		{
 			InitializeComponent();
 			_objectService = objectService;
-			var product = _objectService.GetNameObjects(2);
+			var product = _objectService.GetObjects();
+			var productByUid = _objectService.GetObjectByUID(Guid.Parse("CAF5783E-ACAE-4083-A5EF-674B5CB53391"));
+			var productid = _objectService.UpdateObject(new Interfaces.Models.Objects.Object()
+				{
+					Name = "upd_kino",
+					UID = productByUid.UID,
+				});
 		}
 
 		private IObjectServices _objectService;

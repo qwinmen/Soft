@@ -1,21 +1,21 @@
 ﻿using System;
+using System.Linq;
 using System.ServiceModel;
 using Monolit.Interfaces.Common;
 using Monolit.Interfaces.Services;
-using Object = Monolit.Interfaces.Models.Objects.Object;
 
 namespace Monolit.Interfaces.Contracts
 {
 	[ServiceContract]
-	public interface IObjectServices : ICommonService
+	public interface IObjectServices: ICommonService
 	{
-		[OperationContract(Name="GetByRevision")]
-		CommonOperationResultSet<Object> GetNameObjects(long revision);
+		[OperationContract(Name = "GetByRevision")]
+		CommonOperationResultSet<Models.Objects.Object> GetObjects(long revision = 0);
 
 		[OperationContract(Name = "GetByUID")]
-		Object GetNameObjects(Guid uid);
+		Models.Objects.Object GetObjectByUID(Guid uid);
 
-		[OperationContract(Name="GetByData")]
-		CommentOperationResult GetNameObjects(Object objData);
+		[OperationContract(Name = "GetByData")]
+		CommentOperationResult UpdateObject(Models.Objects.Object objData);
 	}
 }

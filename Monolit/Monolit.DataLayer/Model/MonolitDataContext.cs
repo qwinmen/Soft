@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Data.Entity;
-using System.Linq;
 using EntityFramework.DynamicFilters;
+using System.Linq;
 using Monolit.DataLayer.Model.dbo.Objects;
 using Monolit.Interfaces;
-using ViageSoft.SystemServices.Contextual;
 
 namespace Monolit.DataLayer.Model
 {

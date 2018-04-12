@@ -147,6 +147,10 @@
       <Project>{ee28960a-5ce2-4ee5-8811-53172c8ef680}</Project>
       <Name>Monolit.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Monolit\Monolit.csproj">
+      <Project>{69d55346-8d0c-4b2c-abea-8c567f75caea}</Project>
+      <Name>Monolit</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

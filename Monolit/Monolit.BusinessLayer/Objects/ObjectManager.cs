@@ -14,16 +14,9 @@ namespace Monolit.BusinessLayer.Objects
 	public static class ObjectManager
 	{
 		private static IDataRepository<ObjectDao> ObjectDataRepository => GlobalContextManager.CurrentContext.Get<IDataRepository<ObjectDao>>();
-		/// <summary>
-		///     Экземпляр для извлечения данных из БД
-		/// </summary>
-		private static readonly MonolitDataContext __context = new MonolitDataContext();
-		public static IQueryable<ObjectDao> ObjectsQueryable => __context.Objects;
-
+		
 		public static CommonOperationResultSet<Object> GetNameObjects(long revision)
 		{
-			IQueryable<ObjectDao> f = __context.Objects.Where(i=>!i.IsDeleted);
-			
 			using (DataRepositoryManager.Current.DisableFilter(DataFilters.SoftDelete))
 				return new CommonOperationResultSet<Object>(
 					ObjectDataRepository
@@ -46,13 +39,28 @@ namespace Monolit.BusinessLayer.Objects
 			}
 			else
 			{
-				result = ObjectDataRepository.Update(objData.ToDao()).ToDto();
+				result = Update(objData);
 			}
 
 			if (result == null)
 				return new CommentOperationResult("Не удалось обновить информацию в таблице Objects.");
 
-			return new CommentOperationResult(ObjectServiceOperationStatus.Success, null);
+			return new CommentOperationResult(ObjectServiceOperationStatus.Success, result);
+		}
+
+		private static Object Update(Object entry)
+		{
+			var oldData = GetNameObjectByUid(entry.UID);
+			var newData = new Object()
+				{
+					UID = oldData.UID,
+					ID = oldData.ID,
+					DocID = oldData.DocID,
+					Revision = oldData.Revision,
+					Name = entry.Name == oldData.Name ? oldData.Name : entry.Name,
+					IsDeleted = entry.IsDeleted,
+				};
+			return ObjectDataRepository.Update(newData.ToDao()).ToDto();
 		}
 	}
 }
