@@ -17,5 +17,8 @@ namespace Monolit.Interfaces.Contracts
 
 		[OperationContract(Name = "GetByData")]
 		CommentOperationResult UpdateObject(Models.Objects.Object objData);
+
+		[OperationContract]
+		CommentOperationResult Delete(Guid objUid);
 	}
 }

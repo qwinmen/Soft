@@ -26,5 +26,10 @@ namespace Monolit.Facade.Services
 		{
 			return ObjectManager.UpdateNameObjects(objData);
 		}
+
+		public CommentOperationResult Delete(Guid objUid)
+		{
+			return ObjectManager.Delete(objUid);
+		}
 	}
 }

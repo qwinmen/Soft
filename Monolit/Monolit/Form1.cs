@@ -26,6 +26,7 @@ namespace Monolit
 					Name = "upd_kino",
 					UID = productByUid.UID,
 				});
+			var del = _objectService.Delete(Guid.Parse("CAF5783E-ACAE-4083-A5EF-674B5CB53391"));
 		}
 
 		private IObjectServices _objectService;
