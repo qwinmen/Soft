@@ -153,6 +153,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Properties\SoftIcon.ico" />
+    <Content Include="Redme.txt" />
     <Content Include="SoftIcon.ico" />
   </ItemGroup>
   <ItemGroup>

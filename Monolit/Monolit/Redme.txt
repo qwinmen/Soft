@@ -1,0 +1,7 @@
+﻿
+Шаги запуска софтины
+1-Set as default project Monolit.ServiceApp
+2-В Monolit.DataLayer\SqlServerTypes папка может отвальться
+
+
+
