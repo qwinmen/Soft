@@ -21,12 +21,12 @@ namespace Monolit
 			_objectService = objectService;
 			var product = _objectService.GetObjects();
 			var productByUid = _objectService.GetObjectByUID(Guid.Parse("CAF5783E-ACAE-4083-A5EF-674B5CB53391"));
-			var productid = _objectService.UpdateObject(new Interfaces.Models.Objects.Object()
+			/*var productid = _objectService.UpdateObject(new Interfaces.Models.Objects.Object()
 				{
 					Name = "upd_kino",
 					UID = productByUid.UID,
 				});
-			var del = _objectService.Delete(Guid.Parse("CAF5783E-ACAE-4083-A5EF-674B5CB53391"));
+			var del = _objectService.Delete(Guid.Parse("CAF5783E-ACAE-4083-A5EF-674B5CB53391"));*/
 		}
 
 		private IObjectServices _objectService;

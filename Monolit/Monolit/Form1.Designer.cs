@@ -31,11 +31,12 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			this.statusBottomBar = new System.Windows.Forms.StatusStrip();
 			this.toolStripStatusLabel_OpenedFileName = new System.Windows.Forms.ToolStripStatusLabel();
+			this.toolStripStatusLabel_Главы = new System.Windows.Forms.ToolStripStatusLabel();
 			this.menuTopBar = new System.Windows.Forms.MenuStrip();
 			this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.открытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.richTextBox_Document = new System.Windows.Forms.RichTextBox();
-			this.toolStripStatusLabel_Главы = new System.Windows.Forms.ToolStripStatusLabel();
+			this.tamitaRunToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.statusBottomBar.SuspendLayout();
 			this.menuTopBar.SuspendLayout();
 			this.SuspendLayout();
@@ -57,6 +58,12 @@
 			this.toolStripStatusLabel_OpenedFileName.Size = new System.Drawing.Size(52, 17);
 			this.toolStripStatusLabel_OpenedFileName.Text = "Файл: --";
 			// 
+			// toolStripStatusLabel_Главы
+			// 
+			this.toolStripStatusLabel_Главы.Name = "toolStripStatusLabel_Главы";
+			this.toolStripStatusLabel_Главы.Size = new System.Drawing.Size(57, 17);
+			this.toolStripStatusLabel_Главы.Text = "Главы: --";
+			// 
 			// menuTopBar
 			// 
 			this.menuTopBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -70,7 +77,8 @@
 			// файлToolStripMenuItem
 			// 
 			this.файлToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.открытьToolStripMenuItem});
+            this.открытьToolStripMenuItem,
+            this.tamitaRunToolStripMenuItem});
 			this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
 			this.файлToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
 			this.файлToolStripMenuItem.Text = "Файл";
@@ -78,7 +86,7 @@
 			// открытьToolStripMenuItem
 			// 
 			this.открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
-			this.открытьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.открытьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.открытьToolStripMenuItem.Text = "Открыть";
 			this.открытьToolStripMenuItem.ToolTipText = "Загрузить docx файл";
 			this.открытьToolStripMenuItem.Click += new System.EventHandler(this.ОткрытьToolStripMenuItem_Click);
@@ -92,11 +100,11 @@
 			this.richTextBox_Document.TabIndex = 2;
 			this.richTextBox_Document.Text = "";
 			// 
-			// toolStripStatusLabel_Главы
+			// tamitaRunToolStripMenuItem
 			// 
-			this.toolStripStatusLabel_Главы.Name = "toolStripStatusLabel_Главы";
-			this.toolStripStatusLabel_Главы.Size = new System.Drawing.Size(57, 17);
-			this.toolStripStatusLabel_Главы.Text = "Главы: --";
+			this.tamitaRunToolStripMenuItem.Name = "tamitaRunToolStripMenuItem";
+			this.tamitaRunToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.tamitaRunToolStripMenuItem.Text = "Tamita run";
 			// 
 			// Form1
 			// 
@@ -130,6 +138,7 @@
 		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_OpenedFileName;
 		private System.Windows.Forms.RichTextBox richTextBox_Document;
 		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_Главы;
+		private System.Windows.Forms.ToolStripMenuItem tamitaRunToolStripMenuItem;
 	}
 }
 

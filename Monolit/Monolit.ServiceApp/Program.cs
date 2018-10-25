@@ -16,6 +16,7 @@ namespace Monolit.ServiceApp
 		/// <summary>
 		///     The main entry point for the application.
 		/// </summary>
+		[STAThread]
 		private static void Main()
 		{
 			StartupSettings.SetCurrentSettings(new CustomStartupSettings());
